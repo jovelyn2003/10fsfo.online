@@ -70,7 +70,13 @@
 					target: $body,
 					visibleClass: 'navPanel-visible'
 				});
-
+				document.querySelectorAll("#navPanel a").forEach((link) => {
+					const text = link.textContent.trim().toUpperCase(); // Get text and convert to uppercase
+					if (!["CASH ADVANCE", "PAYMENT", "REMITTANCE"].includes(text)) {
+						link.style.fontSize = "12.5px"; // Change font size
+						link.textContent = `- ${link.textContent}`; // Add dash before text
+					}
+				});
 	// Parallax.
 	// Disabled on IE (choppy scrolling) and mobile platforms (poor performance).
 		if (browser.name == 'ie'
